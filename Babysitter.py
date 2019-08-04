@@ -3,4 +3,4 @@ class Babysitter:
         pass
 
     def calculate(self, start, end):
-        pass
+        return (end - start) * 15
