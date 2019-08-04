@@ -12,7 +12,11 @@ class BabysitterTest(unittest.TestCase):
     def test_charges_for_familyA_without_rate_change(self):
         self.assertEqual(self.babysitter.calculate(17, 22), 75)
 
-    def test_charges_for_familyA_with_rate_change(self):
+    def test_charges_for_familyA_with_rate_change_before_midnight(self):
         self.assertEqual(self.babysitter.calculate(17, 24), 110)
+
+    def test_charges_for_familyA_with_shift_going_beyond_midnight(self):
+        self.assertEqual(self.babysitter.calculate(17, 1), 130)
+
 if __name__ == '__main__':
     unittest.main()
