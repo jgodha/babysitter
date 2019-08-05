@@ -3,6 +3,11 @@ class Babysitter:
         pass
 
     def calculate(self, start, end, family):
+        method_name = 'charges_for_family_' + str(family)
+        method = getattr(self, method_name)
+        return method(start, end)
+
+    def charges_for_family_A(self, start, end):
         charges = 0
         if end <= 24 and end >= 18:
             charges = (end-start) * 15
@@ -13,3 +18,6 @@ class Babysitter:
             for hour in range(0, end):
                 charges += 20
         return charges
+
+    def charges_for_family_B(self, start, end):
+        return (end - start) * 12
