@@ -2,7 +2,7 @@ class Babysitter:
     def __init__(self):
         pass
 
-    def calculate(self, start, end):
+    def calculate(self, start, end, family):
         charges = 0
         if end <= 24 and end >= 18:
             charges = (end-start) * 15
